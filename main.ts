@@ -18,6 +18,12 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         )
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite32, otherSprite32) {
+    if (true) {
+        sprites.destroy(mySprite)
+        game.gameOver(false)
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.obj, function (sprite3, otherSprite3) {
     controller.moveSprite(mySprite, 140, 140)
     sprites.destroy(mySprite2)
@@ -29,12 +35,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     100,
     true
     )
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite3, otherSprite3) {
-    if (true) {
-        sprites.destroy(mySprite)
-        game.gameOver(false)
-    }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
