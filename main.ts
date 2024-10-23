@@ -66,7 +66,7 @@ let mySprite: Sprite = null
 let Rango: Sprite = null
 let mySprite2: Sprite = null
 game.showLongText("BEM VINDO, PRESSIONE ESPAÇO PARA COMEÇAR", DialogLayout.Center)
-game.showLongText("REGRAS: COLETAR 20 SORVETES; SE O INIMIGO ATINGIR VOCÊ, É GAME OVER", DialogLayout.Full)
+game.showLongText("REGRAS: COLETAR 20 SORVETES; SE O INIMIGO ATINGIR VOCÊ, É GAME OVER; A GEMA AZUL AUMENTA SUA VELOCIDADE.", DialogLayout.Full)
 let classe = game.askForString("Qual seu nome?")
 game.splash("Bem vindo, " + classe)
 scene.setBackgroundImage(assets.image`spr_cenario`)
