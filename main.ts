@@ -220,7 +220,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         ................................
         ................................
         `],
-    200,
+    100,
     true
     )
 })
@@ -232,8 +232,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.obj, function (sprite, otherSpri
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite3, otherSprite3) {
     if (true) {
-        sprites.destroy(mySprite)
-        game.gameOver(false)
+        info.changeLifeBy(-1)
+        if (info.life() == 0) {
+            sprites.destroy(mySprite)
+            game.gameOver(false)
+        }
         music.play(music.createSong(hex`00780004080200`), music.PlaybackMode.UntilDone)
     }
 })
@@ -307,7 +310,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         ...........fff......fffff.......
         ................................
         `],
-    200,
+    100,
     true
     )
 })
@@ -558,6 +561,7 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
+info.setLife(3)
 Rango = sprites.create(img`
     ................................
     ................................
@@ -806,3 +810,6 @@ myEnemy.setPosition(6, 5)
 controller.moveSprite(mySprite, 120, 120)
 mySprite.setStayInScreen(true)
 info.setScore(0)
+game.onUpdate(function () {
+	
+})
